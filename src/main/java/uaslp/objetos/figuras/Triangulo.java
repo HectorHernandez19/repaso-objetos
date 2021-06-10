@@ -28,6 +28,11 @@ public class Triangulo extends Figura{
     }
 
     double getArea(){
+        if(base <= 0){
+            throw new BaseNoProvistaException();
+        }else if (altura <= 0){
+            throw new AlturaNoProvistaException();
+        }
         double area;
         area = base*altura/2;
         return area;
@@ -36,6 +41,7 @@ public class Triangulo extends Figura{
     public String getDescription(){
         return "Cualquier triangulo";
     }
+
     @Override
     public String getName(){
         return "Triangulo";

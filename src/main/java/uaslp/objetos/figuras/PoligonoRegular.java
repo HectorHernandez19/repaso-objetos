@@ -4,7 +4,6 @@ import java.lang.Math;
 public class PoligonoRegular extends Figura {
     private double lado;
     private int numeroDeLados;
-    private String name = "Poligono Regular";
 
     PoligonoRegular(int numeroDeLados,double lado){
         this.lado = lado;
@@ -18,7 +17,11 @@ public class PoligonoRegular extends Figura {
     public double getLado(){
         return this.lado;
     }
+
     PoligonoRegular (int numeroDeLados){
+        if(numeroDeLados <= 5){
+            throw new NumeroInvalidoDeLados("Número de lados válido a partir de 5");
+        }
         this.numeroDeLados = numeroDeLados;
     }
 
@@ -29,7 +32,8 @@ public class PoligonoRegular extends Figura {
         area = lado*numeroDeLados*apotema/2;
         return area;
     }
+    @Override
     public String getName(){
-        return this.name;
+        return "Poligono Regular";
     }
 }
